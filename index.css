@@ -74,6 +74,7 @@
 body
 {
     overflow-x: hidden;
+    font-family: sans-serif;
 }
 
 .slide-container
@@ -83,8 +84,8 @@ body
     bottom: 2em;
     right: 2em;
 
-    width: 20em;
-    height: 15em;
+    width: 22em;
+    height: 17em;
 }
 
 .slide
@@ -97,15 +98,25 @@ body
     box-shadow: 0 0 3px rgba(0,0,0,.6);
     padding: 1em;
     
+}
+
+.animate
+{
     -webkit-animation: slide-in-from-right 1.5s;
     -o-animation: slide-in-from-right 1.5s;
     animation: slide-in-from-right 1.5s;
 }
 
-.slide-text
+#slide>div
+{
+    width: 100%;
+    height: 100%;
+}
+
+.slide-header
 {
     font-family: sans-serif;
-    font-size: 1em;
+    font-size: 1.1em;
     color: rgb(15,15,15);
 
     width: 100%;
@@ -116,7 +127,8 @@ body
 
 .highlight
 {
-    font-size: 1.2em;
+    font-weight: bold;
+    /*font-size: 1.2em;*/
 }
 
 /*Add quote symbol before and after content using pseudo-selectors*/
@@ -127,19 +139,75 @@ body
     height: 1em;
 }
 
-.slide-img {
+.slide-content {
   width: 100%;
-  height: 10em;
+  height: calc(100% - 3em);
 
   position: relative;
 }
 
-img {
+.content-container
+{
+    display: block;
+    float: left;
+
+    margin: 0;
+    padding: 0;
+    width: calc(50% - 1em);
+    height: 100%;
+
+    border: 1px solid darkgray;
+}
+
+.content-container:first-child,.content-container:last-child
+{
+    width: calc(50% - .5em);   
+}
+
+.content-container
+{
+    margin: 0 .5em;
+}
+
+.content-container:first-child
+{
+    margin-left: 0;
+}
+
+.content-container:last-child
+{
+    margin-right: 0;
+}
+
+
+.content-img
+{
+    width: 100%;
+    height: 70%;
+}
+
+.content-img li
+{
+    list-style: none;
+}
+
+.content-img li
+{
+    position: relative;
+    float: left;
+    width: 50%;
+    height: 100%;
+
+    overflow: hidden;
+}
+
+.content-img img {
   display: block;
-  max-width: 100%;
-  max-height: 100%;
+  /*max-width: 100%;*/
+  /*max-height: 100%;*/
   width: auto;
-  height: auto;
+  /*height: auto;*/
+  height: 100%;
 
   position: absolute;
   top: 50%;
@@ -148,6 +216,17 @@ img {
   -ms-transform: translate(-50%, -50%);
   -o-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
+}
+
+.content-footer
+{
+    width: 100%;
+    height: 30%;
+
+    padding: .25em .5em;
+    background-color: rgba(0,0,0,.07);
+
+    /*font-size: .8em;*/
 }
 
 .slide-close-btn
@@ -159,6 +238,5 @@ img {
     padding: .375em .5em;
     background-color: rgba(255,255,255,0.5);
 
-    font-family: sans-serif;
     font-size: .85em;
 }

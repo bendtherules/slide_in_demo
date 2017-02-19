@@ -8,15 +8,49 @@
 <body>
     
     <div class="slide-container">
-        <div class="slide">
-            <div class="slide-text">
-                Are you looking for <span class="highlight quote">White dresses</span>?
-            </div>
-            <div class="slide-img">
-                <img src="images/h3.jpg" title="Picture of dress" alt="Please enable images">
-            </div>
+        <div class="slide animate" id="slide">
+            
             <div class="slide-close-btn">X</div>
         </div>
     </div>
+
+    <script type="text/javascript" src="lib/underscore.js"></script>
+    <script type="text/javascript" src="lib/jquery.js"></script>
+    <script type="text/javascript" src="lib/backbone.js"></script>
+    <script type="text/javascript" src="lib/backbone.radio.js"></script>
+    <script type="text/javascript" src="lib/backbone.marionette.js"></script>
+    <script type="text/javascript" src="data.js"></script>
+
+    <script type="x-template/underscore" id="template">
+    <div class="slide-header">
+        <%= header %>
+        
+    </div>
+    <div class="slide-content">
+    <% content.forEach(function(current_content){ %>
+    <div class="content-container">
+        <div class="content-img">
+            <% current_content.images.forEach(function(current_image){ %>
+            <li>
+                <img src="images/<%= current_image %>" title="Picture of dress" alt="Please enable images">
+            </li>
+            <% }) %>
+    </li>
+            
+        </div>
+        
+        <div class="content-footer">
+            <div class="content-text">
+                <%= current_content.text %>
+            </div>
+        </div>
+
+    </div>
+    <% }) %>
+        
+    </div>
+    </script>
+    <script type="text/javascript" src="index.js"></script>
+    
 </body>
 </html>
